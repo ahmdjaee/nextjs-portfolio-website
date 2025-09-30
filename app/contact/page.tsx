@@ -58,7 +58,7 @@ export default function ContactPage() {
                       href="mailto:hello@example.com"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      hello@example.com
+                      ahmadjaelani8685@gmail.com
                     </a>
                   </div>
                 </div>
@@ -68,7 +68,7 @@ export default function ContactPage() {
                   <div>
                     <p className="font-semibold mb-1">Phone</p>
                     <a href="tel:+6281234567890" className="text-muted-foreground hover:text-primary transition-colors">
-                      +62 812 3456 7890
+                      +62 877 3526 1470
                     </a>
                   </div>
                 </div>
@@ -77,7 +77,7 @@ export default function ContactPage() {
                   <MapPin className="text-primary mt-1 flex-shrink-0" size={20} />
                   <div>
                     <p className="font-semibold mb-1">Location</p>
-                    <p className="text-muted-foreground">Jakarta, Indonesia</p>
+                    <p className="text-muted-foreground">Bekasi, Indonesia</p>
                   </div>
                 </div>
               </CardContent>
