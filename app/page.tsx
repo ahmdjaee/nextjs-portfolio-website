@@ -47,7 +47,7 @@ export default function HomePage() {
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <div className="max-w-4xl animate-fade-in">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-balance">
-            Hi, I'm <span className="text-primary">Your Name</span>
+            Hi, I'm <span className="text-primary">Ahmad Jaelani</span>
           </h1>
           <p className="text-xl sm:text-2xl text-muted-foreground mb-8 text-pretty leading-relaxed">
             A passionate full-stack developer specializing in building exceptional digital experiences. I create modern,
@@ -149,11 +149,11 @@ export default function HomePage() {
               <div className="space-y-4">
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-muted-foreground">
                   <div>
-                    <span className="font-semibold text-foreground">Email:</span> hello@example.com
+                    <span className="font-semibold text-foreground">Email:</span> ahmadjaelani8685@gmail.com
                   </div>
                   <div className="hidden sm:block">•</div>
                   <div>
-                    <span className="font-semibold text-foreground">Phone:</span> +62 812 3456 7890
+                    <span className="font-semibold text-foreground">Phone:</span> +62 877 3526 1470
                   </div>
                 </div>
                 <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
