@@ -1,6 +1,6 @@
 import type { Project, ApiResponse } from "./types"
 
-const BASE_URL = "https://ahmad-jaelani-portfolio.my.id"
+const BASE_URL = "http://portfolio-ahmad-jaelani.test"
 
 export async function getAllProjects(): Promise<Project[]> {
   try {
