@@ -4,30 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { SimpleIcon } from "@/lib/simple-icons"
-
-const featuredProjects = [
-  {
-    id: 1,
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with payment integration and admin dashboard",
-    image: "/modern-ecommerce-website.png",
-    tags: ["Next.js", "TypeScript", "Stripe"],
-  },
-  {
-    id: 2,
-    title: "Task Management App",
-    description: "Collaborative task management tool with real-time updates",
-    image: "/task-management-dashboard.png",
-    tags: ["React", "Node.js", "Socket.io"],
-  },
-  {
-    id: 3,
-    title: "Portfolio Website",
-    description: "Modern portfolio website with blog and project showcase",
-    image: "/portfolio-website-design.png",
-    tags: ["Next.js", "Tailwind", "MDX"],
-  },
-]
+import { getFeaturedProjects } from "@/lib/api"
 
 const techStack = [
   { name: "React", slug: "react", color: "#61DAFB" },
@@ -40,7 +17,9 @@ const techStack = [
   { name: "Docker", slug: "docker", color: "#2496ED" },
 ]
 
-export default function HomePage() {
+export default async function HomePage() {
+  const featuredProjects = await getFeaturedProjects()
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -75,7 +54,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {featuredProjects.map((project, index) => (
-            <Link key={project.id} href={`/projects/${project.id}`}>
+            <Link key={project.id} href={`/projects/${project.slug}`}>
               <Card
                 className="group hover:border-primary transition-all duration-300 h-full animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
@@ -94,8 +73,8 @@ export default function HomePage() {
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary">
-                        {tag}
+                      <Badge key={tag.id} variant="secondary">
+                        {tag.name}
                       </Badge>
                     ))}
                   </div>
