@@ -173,7 +173,7 @@ export default function ContactPage() {
                       id="message"
                       name="message"
                       placeholder="Tell me about your project..."
-                      rows={6}
+                      rows={10}
                       value={formData.message}
                       onChange={handleChange}
                       required
