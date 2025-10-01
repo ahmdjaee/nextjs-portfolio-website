@@ -35,7 +35,7 @@ export default async function ProjectsPage() {
               >
                 <div className="aspect-video overflow-hidden rounded-t-lg">
                   <img
-                    src={asset(project.image)|| "/placeholder.svg"}
+                    src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />

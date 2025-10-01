@@ -1,16 +1,16 @@
-import Link from "next/link"
-import { ArrowLeft, ExternalLink, Github } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
-import { asset, BASE_URL, getProjectBySlug } from "@/lib/api"
-import { notFound } from "next/navigation"
+import Link from "next/link";
+import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { asset, BASE_URL, getProjectBySlug } from "@/lib/api";
+import { notFound } from "next/navigation";
 
 export default async function ProjectDetailPage({ params }: { params: { slug: string } }) {
-  const project = await getProjectBySlug(params.slug)
+  const project = await getProjectBySlug(params.slug);
 
   if (!project) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -26,7 +26,11 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
         <div className="animate-fade-in">
           {/* Hero Image */}
           <div className="aspect-video overflow-hidden rounded-lg mb-8">
-            <img src={asset(project.image) || "/placeholder.svg"} alt={project.title} className="w-full h-full object-cover" />
+            <img
+              src={project.image || "/placeholder.svg"}
+              alt={project.title}
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/* Project Header */}
@@ -134,11 +138,15 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
                 {project.gallery.map((image) => (
                   <div key={image.id} className="aspect-video overflow-hidden rounded-lg">
                     <img
-                      src={BASE_URL + image.imagePath || "/placeholder.svg"}
+                      src={image.imagePath || "/placeholder.svg"}
                       alt={image.caption || project.title}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />
-                    {image.caption && <p className="text-sm text-muted-foreground mt-2 text-center">{image.caption}</p>}
+                    {image.caption && (
+                      <p className="text-sm text-muted-foreground mt-2 text-center">
+                        {image.caption}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -147,5 +155,5 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
         </div>
       </div>
     </div>
-  )
+  );
 }
