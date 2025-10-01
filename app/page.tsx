@@ -1,10 +1,10 @@
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { SimpleIcon } from "@/lib/simple-icons"
-import { getFeaturedProjects } from "@/lib/api"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { asset, getFeaturedProjects } from "@/lib/api";
+import { SimpleIcon } from "@/lib/simple-icons";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const techStack = [
   { name: "React", slug: "react", color: "#61DAFB" },
@@ -15,10 +15,10 @@ const techStack = [
   { name: "Tailwind CSS", slug: "tailwindcss", color: "#06B6D4" },
   { name: "MongoDB", slug: "mongodb", color: "#47A248" },
   { name: "Docker", slug: "docker", color: "#2496ED" },
-]
+];
 
 export default async function HomePage() {
-  const featuredProjects = await getFeaturedProjects()
+  const featuredProjects = await getFeaturedProjects();
 
   return (
     <div className="min-h-screen">
@@ -29,11 +29,15 @@ export default async function HomePage() {
             Hi, I'm <span className="text-primary">Ahmad Jaelani</span>
           </h1>
           <p className="text-xl sm:text-2xl text-muted-foreground mb-8 text-pretty leading-relaxed">
-            A passionate full-stack developer specializing in building exceptional digital experiences. I create modern,
-            responsive, and user-friendly web applications.
+            A passionate full-stack developer specializing in building exceptional digital
+            experiences. I create modern, responsive, and user-friendly web applications.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button
+              asChild
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+            >
               <Link href="/projects">
                 View My Work <ArrowRight className="ml-2" size={20} />
               </Link>
@@ -61,13 +65,15 @@ export default async function HomePage() {
               >
                 <div className="aspect-video overflow-hidden rounded-t-lg">
                   <img
-                    src={project.image || "/placeholder.svg"}
+                    src={asset(project.image) || "/placeholder.svg"}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle className="group-hover:text-primary transition-colors">{project.title}</CardTitle>
+                  <CardTitle className="group-hover:text-primary transition-colors">
+                    {project.title}
+                  </CardTitle>
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -128,14 +134,19 @@ export default async function HomePage() {
               <div className="space-y-4">
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-muted-foreground">
                   <div>
-                    <span className="font-semibold text-foreground">Email:</span> ahmadjaelani8685@gmail.com
+                    <span className="font-semibold text-foreground">Email:</span>{" "}
+                    ahmadjaelani8685@gmail.com
                   </div>
                   <div className="hidden sm:block">•</div>
                   <div>
                     <span className="font-semibold text-foreground">Phone:</span> +62 877 3526 1470
                   </div>
                 </div>
-                <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90"
+                >
                   <Link href="/contact">
                     Contact Me <ArrowRight className="ml-2" size={20} />
                   </Link>
@@ -146,5 +157,5 @@ export default async function HomePage() {
         </Card>
       </section>
     </div>
-  )
+  );
 }
