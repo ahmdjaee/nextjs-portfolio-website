@@ -35,7 +35,7 @@ const experiences = [
   },
  
   {
-    title: "Technician Project,
+    title: "Technician Project",
     company: "PT Heinz ABC Indonesia",
     period: "Jun-2021 - Aug-2022",
     description: "The experience is not displayed because I consider it less relevant.",
@@ -105,7 +105,7 @@ export default function ResumePage() {
                   <p className="text-primary font-semibold">{exp.company}</p>
                 </CardHeader>
                 <CardContent>
-                   <p className="text-muted-foreground mb-4">{exp?.description}</p>
+                  <p className="text-muted-foreground mb-4">{exp?.description}</p>
                   <div className="space-y-2">
                     <p className="font-semibold text-sm">Job Desc:</p>
                     <ul className="space-y-1">
