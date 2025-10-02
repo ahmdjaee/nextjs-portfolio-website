@@ -59,10 +59,18 @@ const formalEducation = [
   },
 ];
 
+const nonFormalEducation = [
+  {
+    degree: "Mobile Developer Technical",
+    institution: "Kemnaker Bekasi, Indonesia",
+    period: "Feb-2023 - Sep-2023",
+    description: "Here, I learned Kotlin from basics to advanced levels and successfully developed a modular app project, which led to my graduation.",
+  },
+];
+
 const certifications = [
-  "AWS Certified Developer - Associate",
-  "Google Cloud Professional Developer",
-  "Meta Front-End Developer Professional Certificate",
+  "Mobile Application And Technology",
+  "Membuat aplikasi web dengan React",
 ];
 
 const skills = {
@@ -139,6 +147,31 @@ export default function ResumePage() {
 
           <div className="space-y-6">
             {formalEducation.map((edu, index) => (
+              <Card key={index} className="border-l-4 border-l-primary">
+                <CardHeader>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+                    <CardTitle className="text-xl">{edu.degree}</CardTitle>
+                    <Badge variant="secondary">{edu.period}</Badge>
+                  </div>
+                  <p className="text-primary font-semibold">{edu.institution}</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{edu.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Non Formal Education */}
+        <section className="mb-16 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <div className="flex items-center gap-3 mb-6">
+            <GraduationCap className="text-primary" size={28} />
+            <h2 className="text-3xl font-bold">Non Formal Education</h2>
+          </div>
+
+          <div className="space-y-6">
+            {nonFormalEducation.map((edu, index) => (
               <Card key={index} className="border-l-4 border-l-primary">
                 <CardHeader>
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
