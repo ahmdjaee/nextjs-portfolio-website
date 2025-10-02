@@ -8,7 +8,7 @@ const experiences = [
     title: "Freelance web or design",
     company: "Freelance",
     period: "Jul-2025 - Present",
-    description: "Built fullstack web application",
+    description: "Build fullstack web application",
     jobDescs: [],
   },
   {
