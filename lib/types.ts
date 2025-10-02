@@ -45,6 +45,22 @@ export interface Project {
   updatedAt: string
 }
 
+/**
+ * BLOG TYPES
+ */
+
+export interface Blog {
+  id: number,
+  thumbnail: string
+  title: string
+  slug: string
+  sub_title: string
+  published_at: string
+  tags: Tag[]
+  content: string
+}
+
+
 export interface ApiResponse<T> {
   success: boolean
   data: T
