@@ -7,14 +7,14 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const techStack = [
+  { name: "Laravel", slug: "laravel", color: "#000000" },
   { name: "React", slug: "react", color: "#61DAFB" },
-  { name: "Next.js", slug: "nextdotjs", color: "#000000" },
-  { name: "TypeScript", slug: "typescript", color: "#3178C6" },
-  { name: "Node.js", slug: "nodedotjs", color: "#339933" },
-  { name: "PostgreSQL", slug: "postgresql", color: "#4169E1" },
+  { name: "Javascript", slug: "javascript", color: "#3178C6" },
+  { name: "Jquery", slug: "jquery", color: "#339933" },
+  { name: "MySQL", slug: "mysql", color: "#4169E1" },
   { name: "Tailwind CSS", slug: "tailwindcss", color: "#06B6D4" },
-  { name: "MongoDB", slug: "mongodb", color: "#47A248" },
-  { name: "Docker", slug: "docker", color: "#2496ED" },
+  { name: "Bootstrap", slug: "bootstrap", color: "#47A248" },
+  { name: "Git", slug: "git", color: "#2496ED" },
 ];
 
 export default async function HomePage() {
