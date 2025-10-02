@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { getBlogBySlug } from "@/lib/api";
 import { notFound } from "next/navigation";
 import Codeblock from "@/components/ui/codeblock";
+import { CardDescription } from "@/components/ui/card";
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = await getBlogBySlug(params.slug);
@@ -12,7 +13,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   if (!post) {
     notFound();
   }
-  
+
   return (
     <div className="min-h-screen pt-24 pb-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
@@ -59,9 +60,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               </div> */}
             </div>
           </div>
-
+          <CardDescription className="line-clamp-2 mb-3">{post.sub_title}</CardDescription>
           {/* Post Content */}
-          <Codeblock content={post.content}/>
+          <Codeblock content={post.content} />
         </article>
       </div>
     </div>
