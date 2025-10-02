@@ -14,10 +14,13 @@ export default function Loading() {
           </Link>
         </Button>
         <div className="flex flex-col space-y-3">
-          <Skeleton className="aspect-video overflow-hidden rounded-lg mb-8" />
-          <div className="space-y-2">
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-full" />
+          {/* Hero Image */}
+          <div className="flex flex-col space-y-3">
+            <Skeleton className="aspect-video overflow-hidden rounded-lg mb-8 bg-secondary" />
+            <div className="space-y-2">
+              <Skeleton className="h-4 w-full bg-secondary" />
+              <Skeleton className="h-4 w-full bg-secondary" />
+            </div>
           </div>
         </div>
       </div>

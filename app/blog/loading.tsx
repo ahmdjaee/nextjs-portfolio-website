@@ -17,10 +17,10 @@ export default function Loading() {
         <article className="animate-fade-in">
           {/* Hero Image */}
           <div className="flex flex-col space-y-3">
-            <Skeleton className="aspect-video overflow-hidden rounded-lg mb-8" />
+            <Skeleton className="aspect-video overflow-hidden rounded-lg mb-8 bg-secondary" />
             <div className="space-y-2">
-              <Skeleton className="h-4 w-full" />
-              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-full bg-secondary" />
+              <Skeleton className="h-4 w-full bg-secondary" />
             </div>
           </div>
         </article>
