@@ -1,17 +1,17 @@
-import { Briefcase, GraduationCap, Award, Download } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Briefcase, GraduationCap, Award, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const experiences = [
- {
+  {
     title: "Freelance web or design",
     company: "Freelance",
     period: "Jul-2025 - Present",
-    description: "Build fullstack web application",
+    description: "Built fullstack web application",
     jobDescs: [],
   },
- {
+  {
     title: "Cashier, Bartender",
     company: "Steak Holic",
     period: "Feb -2025 - Jul-2025",
@@ -33,7 +33,7 @@ const experiences = [
       "Utilized workflow management tools like Trello for validation and review",
     ],
   },
- 
+
   {
     title: "Technician Project",
     company: "PT Heinz ABC Indonesia",
@@ -48,7 +48,7 @@ const experiences = [
     description: "The experience is not displayed because I consider it less relevant.",
     jobDescs: [],
   },
-]
+];
 
 const formalEducation = [
   {
@@ -57,20 +57,20 @@ const formalEducation = [
     period: "2022 - Present",
     description: "Focused on software engineering, algorithms, and web technologies.",
   },
-]
+];
 
 const certifications = [
   "AWS Certified Developer - Associate",
   "Google Cloud Professional Developer",
   "Meta Front-End Developer Professional Certificate",
-]
+];
 
 const skills = {
   Frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js"],
   Backend: ["Node.js", "Express", "PostgreSQL", "MongoDB", "REST APIs"],
   Tools: ["Git", "Docker", "AWS", "Vercel", "CI/CD"],
   Other: ["Agile", "Testing", "UI/UX Design", "Team Leadership"],
-}
+};
 
 export default function ResumePage() {
   return (
@@ -84,7 +84,9 @@ export default function ResumePage() {
               Download PDF
             </Button>
           </div>
-          <p className="text-lg text-muted-foreground">My professional experience and qualifications</p>
+          <p className="text-lg text-muted-foreground">
+            My professional experience and qualifications
+          </p>
         </div>
 
         {/* Experience */}
@@ -106,17 +108,22 @@ export default function ResumePage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">{exp?.description}</p>
-                  <div className="space-y-2">
-                    <p className="font-semibold text-sm">Job Desc:</p>
-                    <ul className="space-y-1">
-                      {exp.jobDescs.map((desc, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <span className="text-primary mt-1">•</span>
-                          <span>{desc}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {exp.jobDescs.length > 0 && (
+                    <div className="space-y-2">
+                      <p className="font-semibold text-sm">Job Desc:</p>
+                      <ul className="space-y-1">
+                        {exp.jobDescs.map((desc, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start gap-2 text-sm text-muted-foreground"
+                          >
+                            <span className="text-primary mt-1">•</span>
+                            <span>{desc}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -194,5 +201,5 @@ export default function ResumePage() {
         </section>
       </div>
     </div>
-  )
+  );
 }
