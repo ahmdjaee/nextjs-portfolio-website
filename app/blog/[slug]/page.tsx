@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getBlogBySlug } from "@/lib/api";
 import { notFound } from "next/navigation";
+import Codeblock from "@/components/ui/codeblock";
+import { CardDescription } from "@/components/ui/card";
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = await getBlogBySlug(params.slug);
@@ -11,7 +13,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   if (!post) {
     notFound();
   }
-  
+
   return (
     <div className="min-h-screen pt-24 pb-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
@@ -58,19 +60,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               </div> */}
             </div>
           </div>
-
+          <CardDescription className="line-clamp-2 mb-3">{post.sub_title}</CardDescription>
           {/* Post Content */}
-          <div
-            className="prose prose-invert prose-lg max-w-none
-              prose-headings:text-foreground prose-headings:font-bold
-              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
-              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
-              prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-6
-              prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-              prose-code:text-primary prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded
-              prose-pre:bg-muted prose-pre:border prose-pre:border-border"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          <Codeblock content={post.content} />
         </article>
       </div>
     </div>
