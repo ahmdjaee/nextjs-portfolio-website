@@ -4,48 +4,57 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 const experiences = [
-  {
-    title: "Senior Full-Stack Developer",
-    company: "Tech Company Inc.",
-    period: "2022 - Present",
-    description:
-      "Leading development of enterprise web applications using Next.js, TypeScript, and Node.js. Mentoring junior developers and establishing best practices.",
-    achievements: [
-      "Reduced application load time by 40% through optimization",
-      "Led migration from legacy system to modern tech stack",
-      "Implemented CI/CD pipeline reducing deployment time by 60%",
-    ],
+ {
+    title: "Freelance web or design",
+    company: "Freelance",
+    period: "Jul-2025 - Present",
+    description: "Built fullstack web application",
+    jobDescs: [],
+  },
+ {
+    title: "Cashier, Bartender",
+    company: "Steak Holic",
+    period: "Feb -2025 - Jul-2025",
+    description: "The experience is not displayed because I consider it less relevant.",
+    jobDescs: [],
   },
   {
-    title: "Full-Stack Developer",
-    company: "Digital Agency",
-    period: "2020 - 2022",
-    description:
-      "Developed and maintained multiple client projects including e-commerce platforms, corporate websites, and web applications.",
-    achievements: [
-      "Successfully delivered 15+ client projects on time",
-      "Improved code quality through implementation of testing practices",
-      "Collaborated with design team to create pixel-perfect implementations",
+    title: "Mobile Developer Intern",
+    company: "PT Qtera Mandiri",
+    period: "Oct-2023 - Jan-2024",
+    description: "",
+    jobDescs: [
+      "Implementation of Figma designs into a mobile application",
+      "Developed user interface components",
+      "Integrated API connections using the MVVM architecture",
+      "Conducted API testing with Postman",
+      "Performed unit testing to avoid undetected bugs from manual testing",
+      "Collaborated with other developers using GitHub for structured and collaborative work",
+      "Utilized workflow management tools like Trello for validation and review",
     ],
   },
+ 
   {
-    title: "Frontend Developer",
-    company: "Startup Co.",
-    period: "2018 - 2020",
-    description: "Built responsive and interactive user interfaces using React and modern CSS frameworks.",
-    achievements: [
-      "Developed reusable component library used across multiple projects",
-      "Improved mobile user experience resulting in 25% increase in engagement",
-      "Implemented accessibility standards achieving WCAG 2.1 AA compliance",
-    ],
+    title: "Technician Project,
+    company: "PT Heinz ABC Indonesia",
+    period: "Jun-2021 - Aug-2022",
+    description: "The experience is not displayed because I consider it less relevant.",
+    jobDescs: [],
+  },
+  {
+    title: "Maintenance Support",
+    company: "PT Funworld Prima",
+    period: "Nov-2018 - Mar-2020",
+    description: "The experience is not displayed because I consider it less relevant.",
+    jobDescs: [],
   },
 ]
 
-const education = [
+const formalEducation = [
   {
-    degree: "Bachelor of Computer Science",
-    institution: "University Name",
-    period: "2014 - 2018",
+    degree: "S1 Information Systems",
+    institution: "Bina Insany University, Bekasi, Indonesia",
+    period: "2022 - Present",
     description: "Focused on software engineering, algorithms, and web technologies.",
   },
 ]
@@ -96,14 +105,14 @@ export default function ResumePage() {
                   <p className="text-primary font-semibold">{exp.company}</p>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">{exp.description}</p>
+                   <p className="text-muted-foreground mb-4">{exp?.description}</p>
                   <div className="space-y-2">
-                    <p className="font-semibold text-sm">Key Achievements:</p>
+                    <p className="font-semibold text-sm">Job Desc:</p>
                     <ul className="space-y-1">
-                      {exp.achievements.map((achievement, i) => (
+                      {exp.jobDescs.map((desc, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                           <span className="text-primary mt-1">•</span>
-                          <span>{achievement}</span>
+                          <span>{desc}</span>
                         </li>
                       ))}
                     </ul>
@@ -114,15 +123,15 @@ export default function ResumePage() {
           </div>
         </section>
 
-        {/* Education */}
+        {/* Formal Education */}
         <section className="mb-16 animate-fade-in" style={{ animationDelay: "0.2s" }}>
           <div className="flex items-center gap-3 mb-6">
             <GraduationCap className="text-primary" size={28} />
-            <h2 className="text-3xl font-bold">Education</h2>
+            <h2 className="text-3xl font-bold">Formal Education</h2>
           </div>
 
           <div className="space-y-6">
-            {education.map((edu, index) => (
+            {formalEducation.map((edu, index) => (
               <Card key={index} className="border-l-4 border-l-primary">
                 <CardHeader>
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
