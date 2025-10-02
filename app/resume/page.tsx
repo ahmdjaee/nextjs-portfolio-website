@@ -66,10 +66,10 @@ const certifications = [
 ];
 
 const skills = {
-  Frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js"],
-  Backend: ["Node.js", "Express", "PostgreSQL", "MongoDB", "REST APIs"],
-  Tools: ["Git", "Docker", "AWS", "Vercel", "CI/CD"],
-  Other: ["Agile", "Testing", "UI/UX Design", "Team Leadership"],
+  Frontend: ["React", "Jquery", "Javascript", "Tailwind CSS", "Boostrap", "Ant Design", "Redux / Rtk Query", "HTML", "CSS", ],
+  Backend: ["Laravel", "PHP", "MySQL", "REST APIs", "Pusher", ],
+  Tools: ["Git / Github", "Postman", "Swagger", "Vercel", "Cpanel", "Figma"],
+  Other: ["Trello", "Testing"],
 };
 
 export default function ResumePage() {
