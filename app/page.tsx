@@ -8,6 +8,7 @@ import Link from "next/link";
 
 const techStack = [
   { name: "Laravel", slug: "laravel", color: "FF2D20" },
+  { name: "PHP", slug: "php", color: "777BB4" },
   { name: "React", slug: "react", color: "61DAFB" },
   { name: "Javascript", slug: "javascript", color: "F7DF1E" },
   { name: "Jquery", slug: "jquery", color: "0769AD" },
@@ -18,7 +19,6 @@ const techStack = [
   { name: "Vercel", slug: "vercel", color: "4169E1" },
   { name: "Chatgpt", slug: "openai", color: "74AA9C" },
   { name: "Claude", slug: "claude", color: "D97757" },
-  { name: "V0", slug: "v0", color: "4169E1" },
 ];
 
 export default async function HomePage() {
