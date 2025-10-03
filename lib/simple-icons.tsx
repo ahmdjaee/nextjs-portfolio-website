@@ -12,7 +12,7 @@ export function SimpleIcon({ slug, color, className = "w-12 h-12" }: SimpleIconP
   const [svgContent, setSvgContent] = useState<string>("")
 
   useEffect(() => {
-    fetch(`https://cdn.simpleicons.org/${slug}`)
+    fetch(`https://cdn.simpleicons.org/${slug}/${color}`)
       .then((res) => res.text())
       .then((svg) => {
         setSvgContent(svg)

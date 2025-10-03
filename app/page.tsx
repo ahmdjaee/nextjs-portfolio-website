@@ -7,18 +7,18 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const techStack = [
-  { name: "Laravel", slug: "laravel", color: "#000000" },
-  { name: "React", slug: "react", color: "#61DAFB" },
-  { name: "Javascript", slug: "javascript", color: "#3178C6" },
-  { name: "Jquery", slug: "jquery", color: "#339933" },
-  { name: "MySQL", slug: "mysql", color: "#4169E1" },
-  { name: "Tailwind CSS", slug: "tailwindcss", color: "#06B6D4" },
-  { name: "Bootstrap", slug: "bootstrap", color: "#47A248" },
-  { name: "Git", slug: "git", color: "#2496ED" },
-  { name: "Vercel", slug: "vercel", color: "#2496ED" },
-  { name: "Chatgpt", slug: "openai", color: "#2496ED" },
-  { name: "Claude", slug: "claude", color: "#2496ED" },
-  { name: "V0", slug: "v0", color: "#2496ED" },
+  { name: "Laravel", slug: "laravel", color: "FF2D20" },
+  { name: "React", slug: "react", color: "61DAFB" },
+  { name: "Javascript", slug: "javascript", color: "F7DF1E" },
+  { name: "Jquery", slug: "jquery", color: "0769AD" },
+  { name: "MySQL", slug: "mysql", color: "4169E1" },
+  { name: "Tailwind CSS", slug: "tailwindcss", color: "06B6D4" },
+  { name: "Bootstrap", slug: "bootstrap", color: "7952B3" },
+  { name: "Git", slug: "git", color: "F05032" },
+  { name: "Vercel", slug: "vercel", color: "4169E1" },
+  { name: "Chatgpt", slug: "openai", color: "74AA9C" },
+  { name: "Claude", slug: "claude", color: "D97757" },
+  { name: "V0", slug: "v0", color: "4169E1" },
 ];
 
 export default async function HomePage() {
