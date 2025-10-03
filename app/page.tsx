@@ -15,6 +15,10 @@ const techStack = [
   { name: "Tailwind CSS", slug: "tailwindcss", color: "#06B6D4" },
   { name: "Bootstrap", slug: "bootstrap", color: "#47A248" },
   { name: "Git", slug: "git", color: "#2496ED" },
+  { name: "Vercel", slug: "vercel", color: "#2496ED" },
+  { name: "Chatgpt", slug: "openai", color: "#2496ED" },
+  { name: "Claude", slug: "claude", color: "#2496ED" },
+  { name: "V0", slug: "v0", color: "#2496ED" },
 ];
 
 export default async function HomePage() {
