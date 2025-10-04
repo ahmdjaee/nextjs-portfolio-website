@@ -12,7 +12,7 @@ import NextTopLoader from "nextjs-toploader";
 import Head from "next/head";
 
 export const metadata: Metadata = {
-  title: "Portfolio - Full-Stack Developer",
+  title: "Portfolio - Ahmad Jaelani",
   description: "Professional portfolio showcasing web development projects and expertise",
   generator: "v0.app",
 };
