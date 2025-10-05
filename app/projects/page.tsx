@@ -1,10 +1,5 @@
-import Link from "next/link";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
-import { asset, BASE_URL, getAllProjects } from "@/lib/api";
-import ProjectContent from "@/components/ui/projects";
+import ProjectContent from "@/components/ui/projects-content";
+import { getAllProjects } from "@/lib/api";
 
 export default async function ProjectsPage() {
   const projects = await getAllProjects();
