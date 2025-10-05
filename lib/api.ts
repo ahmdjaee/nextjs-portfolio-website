@@ -57,10 +57,9 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
   }
 }
 
-/** 
+/**------------------------------ 
  * BLOG API
- */
-
+ *------------------------------*/
 export async function getAllBlogs(): Promise<Blog[]> {
   try {
     const response = await fetch(`${BASE_URL}/api/blogs`, {
