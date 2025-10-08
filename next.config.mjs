@@ -10,7 +10,6 @@ const nextConfig = {
     unoptimized: true,
   },
 
-  // ----------------
   distDir: "dist",
 
   trailingSlash: false,
