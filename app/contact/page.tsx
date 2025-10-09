@@ -90,7 +90,7 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/ahmdjaee"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
@@ -99,7 +99,7 @@ export default function ContactPage() {
                   <span>GitHub</span>
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/ahmad-jaelani-60b119202"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"

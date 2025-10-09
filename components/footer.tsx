@@ -39,7 +39,7 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Connect</h3>
             <div className="flex gap-4">
               <a
-                href="https://github.com"
+                href="https://github.com/ahmdjaee"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -47,7 +47,7 @@ export function Footer() {
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/ahmad-jaelani-60b119202/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
