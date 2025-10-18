@@ -1,13 +1,13 @@
 "use client"
 
 import { Moon, Sun } from "lucide-react"
-import { useEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("dark")
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // Check localStorage for saved theme preference
     const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null
     if (savedTheme) {
