@@ -28,7 +28,7 @@ const techStack = [
 function HomeContent({ featuredProjects }: { featuredProjects: Project[] }) {
   return (
     <>
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[36rem] md:min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 z-0"
@@ -91,7 +91,7 @@ function HomeContent({ featuredProjects }: { featuredProjects: Project[] }) {
 
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+          className="absolute bottom-2 md:bottom-8 left-1/2 transform -translate-x-1/2 z-10"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
         >
