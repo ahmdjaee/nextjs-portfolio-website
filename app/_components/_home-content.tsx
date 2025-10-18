@@ -28,7 +28,7 @@ const techStack = [
 function HomeContent({ featuredProjects }: { featuredProjects: Project[] }) {
   return (
     <>
-      <section className="relative min-h-[36rem] md:min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[38rem] md:min-h-screen flex md:items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 z-0"
