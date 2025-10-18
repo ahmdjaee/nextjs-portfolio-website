@@ -25,7 +25,7 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
 
         <div className="animate-fade-in">
           {/* Hero Image */}
-          <div className="aspect-video overflow-hidden rounded-lg mb-8">
+          <div className="aspect-video overflow-hidden rounded-lg mb-8 border shadow-sm">
             <img
               src={project.image || "/placeholder.svg"}
               alt={project.title}
@@ -136,7 +136,7 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
               <h2 className="text-3xl font-bold mb-6">Project Gallery</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {project.gallery.map((image) => (
-                  <div key={image.id} className="aspect-video overflow-hidden rounded-lg">
+                  <div key={image.id} className="aspect-video overflow-hidden rounded-lg border shadow-sm">
                     <img
                       src={image.imagePath || "/placeholder.svg"}
                       alt={image.caption || project.title}
