@@ -2,15 +2,15 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./card"
-import { Badge } from "./badge"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import type { Project, Tag } from "@/lib/types"
 import { Search } from "lucide-react"
-import { Input } from "./input"
+import { Input } from "@/components/ui/input"
 import { ScrollAnimation } from "@/components/scroll-animations"
-import { EmptyState } from "./empty-state"
+import { EmptyState } from "@/components/ui/empty-state"
 import { FolderOpen } from "lucide-react"
-import { Button } from "./button"
+import { Button } from "@/components/ui/button"
 
 function ProjectContent({ projects }: { projects: Project[] }) {
   const [filter, setFilter] = useState("")

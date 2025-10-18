@@ -3,14 +3,14 @@
 import type { Blog } from "@/lib/types"
 import { Calendar, Search } from "lucide-react"
 import { useState } from "react"
-import { Input } from "./input"
+import { Input } from "@/components/ui/input"
 import Link from "next/link"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./card"
-import { Badge } from "./badge"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { ScrollAnimation } from "@/components/scroll-animations"
-import { EmptyState } from "./empty-state"
+import { EmptyState } from "@/components/ui/empty-state"
 import { BookOpen } from "lucide-react"
-import { Button } from "./button"
+import { Button } from "@/components/ui/button"
 
 function BlogContent({ blogs }: { blogs: Blog[] }) {
   const [filter, setFilter] = useState("")

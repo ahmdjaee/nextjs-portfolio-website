@@ -1,5 +1,3 @@
-"use client"
-
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -8,7 +6,6 @@ import { SimpleIcon } from "@/lib/simple-icons"
 import { ScrollAnimation } from "@/components/scroll-animations"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 
 const techStack = [
@@ -26,23 +23,8 @@ const techStack = [
   { name: "Claude", slug: "claude", color: "D97757" },
 ]
 
-export default function HomePage() {
-  const [featuredProjects, setFeaturedProjects] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    const loadProjects = async () => {
-      try {
-        const projects = await getFeaturedProjects()
-        setFeaturedProjects(projects)
-      } catch (error) {
-        console.error("Failed to load projects:", error)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-    loadProjects()
-  }, [])
+export default async function HomePage() {
+  const featuredProjects = await getFeaturedProjects()
 
   return (
     <div className="min-h-screen">
