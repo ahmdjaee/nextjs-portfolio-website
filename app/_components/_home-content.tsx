@@ -31,7 +31,7 @@ function HomeContent({ featuredProjects }: { featuredProjects: Project[] }) {
       <section className="relative min-h-[38rem] md:min-h-screen flex md:items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 filter brightness-100 invert dark:filter-none"
           style={{
             backgroundImage: "url('/hero-bg.jpg')",
             backgroundSize: "cover",
