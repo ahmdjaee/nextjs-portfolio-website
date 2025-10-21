@@ -6,9 +6,9 @@ import { ScrollAnimation } from "@/components/scroll-animations";
 
 const experiences = [
   {
-    title: "Freelance web or design",
-    company: "Freelance",
-    period: "Jul-2025 - Present",
+    title: "Internship Fullstack Developer",
+    company: "PT Glori Investama Berjangka",
+    period: "Oct-2025 - Present",
     description: "Build fullstack web application",
     jobDescs: [],
   },
