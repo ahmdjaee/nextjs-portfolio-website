@@ -20,7 +20,7 @@ const experiences = [
     jobDescs: [],
   },
   {
-    title: "Cashier, Bartender",
+    title: "Bartender",
     company: "Steak Holic",
     period: "Feb-2025 - Jul-2025",
     description: "The experience is not displayed because I consider it less relevant.",
