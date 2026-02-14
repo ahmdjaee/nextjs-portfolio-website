@@ -21,7 +21,7 @@ const techStack = [
   { name: "Bootstrap", slug: "bootstrap", color: "7952B3" },
   { name: "Git", slug: "git", color: "F05032" },
   { name: "Vercel", slug: "vercel", color: "4169E1" },
-  { name: "Chatgpt", slug: "openai", color: "74AA9C" },
+  { name: "Chatgpt", slug: "openaigym", color: "74AA9C" },
   { name: "Claude", slug: "claude", color: "D97757" },
 ];
 
