@@ -28,7 +28,7 @@ const experiences = [
   },
   {
     title: "Freelance Web Development",
-    company: "-",
+    company: "Self Employed",
     period: "Jan-2024 - Feb-2025",
     description: "Build fullstack web application",
     jobDescs: [
