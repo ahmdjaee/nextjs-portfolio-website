@@ -5,19 +5,36 @@ import { Badge } from "@/components/ui/badge";
 import { ScrollAnimation } from "@/components/scroll-animations";
 
 const experiences = [
-  {
-    title: "Internship Fullstack Developer",
-    company: "PT Glori Investama Berjangka",
-    period: "Oct-2025 - Present",
+   {
+    title: "Fullstack Developer",
+    company: "PT Herca Cipta Dermal Perdana",
+    period: "Des-2025 - Present",
     description: "Build fullstack web application",
     jobDescs: [],
   },
   {
-    title: "Cashier, Bartender",
+    title: "Internship Fullstack Developer",
+    company: "PT Glori Investama Berjangka",
+    period: "Oct-2025 - Des-2025",
+    description: "Build fullstack web application",
+    jobDescs: [],
+  },
+  {
+    title: "Bartender",
     company: "Steak Holic",
-    period: "Feb -2025 - Jul-2025",
+    period: "Feb-2025 - Jul-2025",
     description: "The experience is not displayed because I consider it less relevant.",
     jobDescs: [],
+  },
+  {
+    title: "Freelance Web Development",
+    company: "Self Employed",
+    period: "Jan-2024 - Feb-2025",
+    description: "Build fullstack web application",
+    jobDescs: [
+      "Build Expedition Application for PT Irka Express",
+      "Build Travel Umroh Application for PT Muhsinin ID",
+    ],
   },
   {
     title: "Mobile Developer Intern",
