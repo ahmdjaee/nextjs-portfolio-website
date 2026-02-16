@@ -27,6 +27,16 @@ const experiences = [
     jobDescs: [],
   },
   {
+    title: "Freelance Web Development",
+    company: "-",
+    period: "Jan-2024 - Feb-2025",
+    description: "Build fullstack web application",
+    jobDescs: [
+      "Build Expedition Application for PT Irka Express",
+      "Build Travel Umroh Application for PT Muhsinin ID",
+    ],
+  },
+  {
     title: "Mobile Developer Intern",
     company: "PT Qtera Mandiri",
     period: "Oct-2023 - Jan-2024",
