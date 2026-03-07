@@ -5,10 +5,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SimpleIcon } from "@/lib/simple-icons";
-import { Project } from "@/lib/types";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
+import { getFeaturedProjects } from "@/lib/api";
+import { queryKeys } from "@/lib/query-keys";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const techStack = [
   { name: "Laravel", slug: "laravel", color: "FF2D20" },
@@ -25,7 +28,12 @@ const techStack = [
   { name: "Claude", slug: "claude", color: "D97757" },
 ];
 
-function HomeContent({ featuredProjects }: { featuredProjects: Project[] }) {
+function HomeContent() {
+  const { data: featuredProjects = [], isLoading } = useQuery({
+    queryKey: queryKeys.projects.featured,
+    queryFn: getFeaturedProjects,
+  });
+
   return (
     <>
       <section className="relative min-h-[38rem] lg:min-h-screen flex lg:items-center justify-center overflow-hidden">
@@ -126,36 +134,52 @@ function HomeContent({ featuredProjects }: { featuredProjects: Project[] }) {
         </ScrollAnimation>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featuredProjects.map((project, index) => (
-            <ScrollAnimation key={project.id} direction="up" delay={index * 0.1}>
-              <Link href={`/projects/${project.slug}`}>
-                <Card className="group hover:border-primary transition-all duration-300 h-full">
-                  <div className="aspect-video overflow-hidden rounded-t-lg">
-                    <img
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
+          {isLoading
+            ? Array.from({ length: 3 }).map((_, i) => (
+                <Card key={i} className="h-full">
+                  <Skeleton className="aspect-video rounded-t-lg rounded-b-none" />
                   <CardHeader>
-                    <CardTitle className="group-hover:text-primary transition-colors">
-                      {project.title}
-                    </CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
+                    <Skeleton className="h-6 w-3/4" />
+                    <Skeleton className="h-4 w-full mt-1" />
                   </CardHeader>
                   <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <Badge key={tag.id} variant="secondary">
-                          {tag.name}
-                        </Badge>
-                      ))}
+                    <div className="flex gap-2">
+                      <Skeleton className="h-5 w-16" />
+                      <Skeleton className="h-5 w-16" />
                     </div>
                   </CardContent>
                 </Card>
-              </Link>
-            </ScrollAnimation>
-          ))}
+              ))
+            : featuredProjects.map((project, index) => (
+                <ScrollAnimation key={project.id} direction="up" delay={index * 0.1}>
+                  <Link href={`/projects/${project.slug}`}>
+                    <Card className="group hover:border-primary transition-all duration-300 h-full">
+                      <div className="aspect-video overflow-hidden rounded-t-lg">
+                        <img
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <CardHeader>
+                        <CardTitle className="group-hover:text-primary transition-colors">
+                          {project.title}
+                        </CardTitle>
+                        <CardDescription>{project.description}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.map((tag) => (
+                            <Badge key={tag.id} variant="secondary">
+                              {tag.name}
+                            </Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </ScrollAnimation>
+              ))}
         </div>
 
         <ScrollAnimation direction="up" className="text-center mt-12">
