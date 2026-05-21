@@ -4,16 +4,24 @@ import Link from "next/link"
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import type { Project, Tag } from "@/lib/types"
-import { Search } from "lucide-react"
+import type { Tag } from "@/lib/types"
+import { Search, FolderOpen } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { ScrollAnimation } from "@/components/scroll-animations"
 import { EmptyState } from "@/components/ui/empty-state"
-import { FolderOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Skeleton } from "@/components/ui/skeleton"
+import { useQuery } from "@tanstack/react-query"
+import { getAllProjects } from "@/lib/api"
+import { queryKeys } from "@/lib/query-keys"
 
-function ProjectContent({ projects }: { projects: Project[] }) {
+function ProjectContent() {
   const [filter, setFilter] = useState("")
+
+  const { data: projects = [], isLoading } = useQuery({
+    queryKey: queryKeys.projects.all,
+    queryFn: getAllProjects,
+  })
 
   const filteredProjects = projects.filter(
     (project) =>
@@ -42,7 +50,28 @@ function ProjectContent({ projects }: { projects: Project[] }) {
         </div>
       </ScrollAnimation>
 
-      {filteredProjects.length === 0 ? (
+      {isLoading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <Card key={i} className="h-full">
+              <Skeleton className="aspect-video rounded-t-lg rounded-b-none" />
+              <CardHeader>
+                <div className="flex items-center justify-between mb-2">
+                  <Skeleton className="h-5 w-1/2" />
+                  <Skeleton className="h-4 w-10" />
+                </div>
+                <Skeleton className="h-4 w-full mt-1" />
+              </CardHeader>
+              <CardContent>
+                <div className="flex gap-2">
+                  <Skeleton className="h-5 w-16" />
+                  <Skeleton className="h-5 w-16" />
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      ) : filteredProjects.length === 0 ? (
         <EmptyState
           icon={FolderOpen}
           title="No projects found"

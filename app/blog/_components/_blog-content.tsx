@@ -1,7 +1,6 @@
 "use client"
 
-import type { Blog } from "@/lib/types"
-import { Calendar, Search } from "lucide-react"
+import { Calendar, Search, BookOpen } from "lucide-react"
 import { useState } from "react"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
@@ -9,11 +8,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { ScrollAnimation } from "@/components/scroll-animations"
 import { EmptyState } from "@/components/ui/empty-state"
-import { BookOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Skeleton } from "@/components/ui/skeleton"
+import { useQuery } from "@tanstack/react-query"
+import { getAllBlogs } from "@/lib/api"
+import { queryKeys } from "@/lib/query-keys"
 
-function BlogContent({ blogs }: { blogs: Blog[] }) {
+function BlogContent() {
   const [filter, setFilter] = useState("")
+
+  const { data: blogs = [], isLoading } = useQuery({
+    queryKey: queryKeys.blogs.all,
+    queryFn: getAllBlogs,
+  })
 
   const filteredBlogs = blogs.filter((blog) => blog.title.toLowerCase().includes(filter.toLowerCase()))
 
@@ -38,7 +45,23 @@ function BlogContent({ blogs }: { blogs: Blog[] }) {
         </div>
       </ScrollAnimation>
 
-      {filteredBlogs.length === 0 ? (
+      {isLoading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <Card key={i} className="h-full">
+              <Skeleton className="aspect-video rounded-t-lg rounded-b-none" />
+              <CardHeader>
+                <Skeleton className="h-4 w-20 mb-2" />
+                <Skeleton className="h-5 w-full" />
+                <Skeleton className="h-4 w-3/4 mt-1" />
+              </CardHeader>
+              <CardContent>
+                <Skeleton className="h-4 w-32" />
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      ) : filteredBlogs.length === 0 ? (
         <EmptyState
           icon={BookOpen}
           title="No articles found"
