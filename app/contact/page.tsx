@@ -67,8 +67,8 @@ export default function ContactPage() {
                   <Phone className="text-primary mt-1 flex-shrink-0" size={20} />
                   <div>
                     <p className="font-semibold mb-1">Phone</p>
-                    <a href="tel:+6281234567890" className="text-muted-foreground hover:text-primary transition-colors">
-                      +62 877 3526 1470
+                    <a href="tel:+62895331621985" className="text-muted-foreground hover:text-primary transition-colors">
+                      +62 895 3316 21985
                     </a>
                   </div>
                 </div>

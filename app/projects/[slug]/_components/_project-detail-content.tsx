@@ -1,7 +1,8 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import Link from "next/link"
-import { ArrowLeft, ExternalLink, Github } from "lucide-react"
+import { ArrowLeft, ChevronLeft, ChevronRight, Expand, ExternalLink, Github, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -12,10 +13,73 @@ import { queryKeys } from "@/lib/query-keys"
 import { notFound } from "next/navigation"
 
 function ProjectDetailContent({ slug }: { slug: string }) {
+  const [activeGalleryIndex, setActiveGalleryIndex] = useState<number | null>(null)
   const { data: project, isLoading, isError } = useQuery({
     queryKey: queryKeys.projects.bySlug(slug),
     queryFn: () => getProjectBySlug(slug),
   })
+
+  const activeGalleryImage =
+    activeGalleryIndex !== null && project?.gallery[activeGalleryIndex]
+      ? project.gallery[activeGalleryIndex]
+      : null
+
+  useEffect(() => {
+    if (activeGalleryIndex === null || !project?.gallery.length) {
+      return
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveGalleryIndex(null)
+      }
+
+      if (event.key === "ArrowLeft") {
+        setActiveGalleryIndex((currentIndex) =>
+          currentIndex === null
+            ? currentIndex
+            : (currentIndex - 1 + project.gallery.length) % project.gallery.length,
+        )
+      }
+
+      if (event.key === "ArrowRight") {
+        setActiveGalleryIndex((currentIndex) =>
+          currentIndex === null ? currentIndex : (currentIndex + 1) % project.gallery.length,
+        )
+      }
+    }
+
+    const originalBodyOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    window.addEventListener("keydown", handleKeyDown)
+
+    return () => {
+      document.body.style.overflow = originalBodyOverflow
+      window.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [activeGalleryIndex, project?.gallery])
+
+  const showPreviousGalleryImage = () => {
+    if (!project?.gallery.length) {
+      return
+    }
+
+    setActiveGalleryIndex((currentIndex) =>
+      currentIndex === null
+        ? currentIndex
+        : (currentIndex - 1 + project.gallery.length) % project.gallery.length,
+    )
+  }
+
+  const showNextGalleryImage = () => {
+    if (!project?.gallery.length) {
+      return
+    }
+
+    setActiveGalleryIndex((currentIndex) =>
+      currentIndex === null ? currentIndex : (currentIndex + 1) % project.gallery.length,
+    )
+  }
 
   if (isError || (!isLoading && !project)) {
     notFound()
@@ -161,13 +225,27 @@ function ProjectDetailContent({ slug }: { slug: string }) {
               <div className="mb-12">
                 <h2 className="text-3xl font-bold mb-6">Project Gallery</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {project.gallery.map((image) => (
-                    <div key={image.id} className="aspect-video overflow-hidden rounded-lg border shadow-sm">
-                      <img
-                        src={image.imagePath || "/placeholder.svg"}
-                        alt={image.caption || project.title}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
+                  {project.gallery.map((image, index) => (
+                    <div key={image.id}>
+                      <button
+                        type="button"
+                        onClick={() => setActiveGalleryIndex(index)}
+                        className="group relative aspect-video w-full overflow-hidden rounded-lg border shadow-sm"
+                        aria-label={`Open ${image.caption || project.title} gallery image`}
+                      >
+                        <img
+                          src={image.imagePath || "/placeholder.svg"}
+                          alt={image.caption || project.title}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <span className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                        <span className="absolute bottom-3 left-3 translate-y-2 rounded-md bg-background/90 px-3 py-1 text-xs font-medium text-foreground opacity-0 shadow-sm backdrop-blur transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                          Preview
+                        </span>
+                        <span className="absolute right-3 top-3 flex size-9 -translate-y-2 items-center justify-center rounded-md border border-white/20 bg-black/35 text-white opacity-0 backdrop-blur transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                          <Expand size={18} />
+                        </span>
+                      </button>
                       {image.caption && (
                         <p className="text-sm text-muted-foreground mt-2 text-center">
                           {image.caption}
@@ -175,6 +253,67 @@ function ProjectDetailContent({ slug }: { slug: string }) {
                       )}
                     </div>
                   ))}
+                </div>
+              </div>
+            )}
+
+            {activeGalleryImage && (
+              <div
+                className="fixed inset-0 z-50 flex flex-col bg-background/95 backdrop-blur-sm"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Project gallery image preview"
+              >
+                <div className="flex items-center justify-between gap-4 border-b border-border px-4 py-3 sm:px-6">
+                  <div className="min-w-0">
+                    <p className="truncate font-medium">{activeGalleryImage.caption || project.title}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {(activeGalleryIndex ?? 0) + 1} of {project.gallery.length}
+                    </p>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setActiveGalleryIndex(null)}
+                    aria-label="Close gallery preview"
+                  >
+                    <X size={22} />
+                  </Button>
+                </div>
+
+                <div className="relative flex min-h-0 flex-1 items-center justify-center p-4 sm:p-8">
+                  {project.gallery.length > 1 && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="icon"
+                      onClick={showPreviousGalleryImage}
+                      className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 backdrop-blur"
+                      aria-label="Show previous gallery image"
+                    >
+                      <ChevronLeft size={24} />
+                    </Button>
+                  )}
+
+                  <img
+                    src={activeGalleryImage.imagePath || "/placeholder.svg"}
+                    alt={activeGalleryImage.caption || project.title}
+                    className="max-h-full max-w-full rounded-lg object-contain shadow-2xl"
+                  />
+
+                  {project.gallery.length > 1 && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="icon"
+                      onClick={showNextGalleryImage}
+                      className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 backdrop-blur"
+                      aria-label="Show next gallery image"
+                    >
+                      <ChevronRight size={24} />
+                    </Button>
+                  )}
                 </div>
               </div>
             )}
