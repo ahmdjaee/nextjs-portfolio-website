@@ -1,35 +1,43 @@
-"use client"
-
-import { useEffect, useState } from "react"
+import * as icons from "simple-icons"
 
 interface SimpleIconProps {
   slug: string
-  color: string
+  color?: string
   className?: string
 }
 
+// Helper function to convert slug to simple-icons key format
+function getIconKey(slug: string): string {
+  // Convert slug like "nextdotjs" or "react" to "siNextdotjs" or "siReact"
+  const formatted = slug.charAt(0).toUpperCase() + slug.slice(1).toLowerCase()
+  return `si${formatted}`
+}
+
 export function SimpleIcon({ slug, color, className = "w-12 h-12" }: SimpleIconProps) {
-  const [svgContent, setSvgContent] = useState<string>("")
+  const iconKey = getIconKey(slug)
+  const icon = (icons as Record<string, { svg: string; hex: string } | undefined>)[iconKey]
 
-  useEffect(() => {
-    fetch(`https://cdn.simpleicons.org/${slug}/${color}`)
-      .then((res) => res.text())
-      .then((svg) => {
-        setSvgContent(svg)
-      })
-      .catch(() => {
-        // Fallback if icon fails to load
-        setSvgContent("")
-      })
-  }, [slug])
-
-  if (!svgContent) {
+  if (!icon) {
+    // Fallback if icon not found
     return (
-      <div className={className} style={{ backgroundColor: color, borderRadius: "8px" }}>
+      <div
+        className={`${className} rounded-lg flex items-center justify-center bg-muted`}
+        style={{ backgroundColor: color ? `#${color}` : undefined }}
+      >
         <span className="sr-only">{slug}</span>
       </div>
     )
   }
 
-  return <div className={className} style={{ color }} dangerouslySetInnerHTML={{ __html: svgContent }} />
+  const iconColor = color || icon.hex
+
+  return (
+    <div
+      className={className}
+      style={{ color: `#${iconColor}` }}
+      dangerouslySetInnerHTML={{
+        __html: icon.svg.replace("<svg", `<svg fill="currentColor" class="w-full h-full"`),
+      }}
+    />
+  )
 }
