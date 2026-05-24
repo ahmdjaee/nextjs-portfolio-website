@@ -3,68 +3,56 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ScrollAnimation } from "@/components/scroll-animations";
+import { portfolioSkills } from "@/lib/skills";
 
 const experiences = [
-   {
+  {
     title: "Fullstack Developer",
     company: "PT Herca Cipta Dermal Perdana",
-    period: "Des-2025 - Present",
-    description: "Build fullstack web application",
-    jobDescs: [],
-  },
-  {
-    title: "Internship Fullstack Developer",
-    company: "PT Glori Investama Berjangka",
-    period: "Oct-2025 - Des-2025",
-    description: "Build fullstack web application",
-    jobDescs: [],
-  },
-  {
-    title: "Bartender",
-    company: "Steak Holic",
-    period: "Feb-2025 - Jul-2025",
-    description: "The experience is not displayed because I consider it less relevant.",
-    jobDescs: [],
-  },
-  {
-    title: "Freelance Web Development",
-    company: "Self Employed",
-    period: "Jan-2024 - Feb-2025",
-    description: "Build fullstack web application",
+    period: "December 2025 - Present",
+    description: "Fullstack web application development.",
     jobDescs: [
-      "Build Expedition Application for PT Irka Express",
-      "Build Travel Umroh Application for PT Muhsinin ID",
+      "Developed ERP applications using Yii2, Laravel, and Next.js.",
+      "Developed a clinic application using Laravel.",
+      "Developed company profile websites using Laravel and Next.js.",
+    ],
+  },
+  {
+    title: "Fullstack Developer Intern",
+    company: "PT Glori Investama Berjangka",
+    period: "October 2025 - December 2025",
+    description: "Fullstack web application development.",
+    jobDescs: [
+      "Developed an attendance application.",
+      "Built and developed a task management application.",
+      "Built and developed an advance and expense tracker application.",
+      "Developed a CRM application.",
+    ],
+  },
+  {
+    title: "Freelance Web Developer",
+    company: "Self Employed",
+    period: "January 2024 - September 2025",
+    description: "Freelance web application development.",
+    jobDescs: [
+      "Built an expedition application for PT Irka Express.",
+      "Built an Umrah travel application for PT Muhsinin ID.",
     ],
   },
   {
     title: "Mobile Developer Intern",
     company: "PT Qtera Mandiri",
-    period: "Oct-2023 - Jan-2024",
-    description: "",
+    period: "October 2023 - January 2024",
+    description: "Mobile application development internship.",
     jobDescs: [
-      "Implementation of Figma designs into a mobile application",
-      "Developed user interface components",
-      "Integrated API connections using the MVVM architecture",
-      "Conducted API testing with Postman",
-      "Performed unit testing to avoid undetected bugs from manual testing",
-      "Collaborated with other developers using GitHub for structured and collaborative work",
-      "Utilized workflow management tools like Trello for validation and review",
+      "Implemented Figma designs into a mobile application.",
+      "Built UI components using Kotlin (XML and Jetpack Compose).",
+      "Integrated APIs using MVVM architecture.",
+      "Tested APIs using Postman and Swagger.",
+      "Performed unit testing to prevent bugs.",
+      "Collaborated using GitHub for branching, pull requests, and merges.",
+      "Used Trello for workflow and task management.",
     ],
-  },
-
-  {
-    title: "Technician Project",
-    company: "PT Heinz ABC Indonesia",
-    period: "Jun-2021 - Aug-2022",
-    description: "The experience is not displayed because I consider it less relevant.",
-    jobDescs: [],
-  },
-  {
-    title: "Maintenance Support",
-    company: "PT Funworld Prima",
-    period: "Nov-2018 - Mar-2020",
-    description: "The experience is not displayed because I consider it less relevant.",
-    jobDescs: [],
   },
 ];
 
@@ -89,22 +77,7 @@ const nonFormalEducation = [
 
 const certifications = ["Mobile Application And Technology", "Membuat aplikasi web dengan React"];
 
-const skills = {
-  Frontend: [
-    "React",
-    "Jquery",
-    "Javascript",
-    "Tailwind CSS",
-    "Boostrap",
-    "Ant Design",
-    "Redux / Rtk Query",
-    "HTML",
-    "CSS",
-  ],
-  Backend: ["Laravel", "PHP", "MySQL", "REST APIs", "Pusher"],
-  Tools: ["Git / Github", "Postman", "Swagger", "Vercel", "Cpanel", "Figma"],
-  Other: ["Trello", "Testing"],
-};
+const skills = portfolioSkills;
 
 export default function ResumePage() {
   return (

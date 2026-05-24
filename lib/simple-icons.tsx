@@ -1,5 +1,10 @@
 import * as icons from "simple-icons"
 
+type SimpleIconDefinition = {
+  svg: string
+  hex: string
+}
+
 interface SimpleIconProps {
   slug: string
   color?: string
@@ -15,7 +20,7 @@ function getIconKey(slug: string): string {
 
 export function SimpleIcon({ slug, color, className = "w-12 h-12" }: SimpleIconProps) {
   const iconKey = getIconKey(slug)
-  const icon = (icons as Record<string, { svg: string; hex: string } | undefined>)[iconKey]
+  const icon = (icons as unknown as Record<string, SimpleIconDefinition | undefined>)[iconKey]
 
   if (!icon) {
     // Fallback if icon not found
