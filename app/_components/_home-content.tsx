@@ -178,7 +178,7 @@ function HomeContent() {
               <span className="text-primary">fast, clear, and usable.</span>
             </motion.h1>
 
-            {/* <motion.p
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
@@ -186,7 +186,7 @@ function HomeContent() {
             >
               I design and build responsive applications with React, Next.js, Laravel, and clean API
               workflows, from landing pages to internal dashboards.
-            </motion.p> */}
+            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -202,32 +202,6 @@ function HomeContent() {
               <Button asChild size="lg" variant="outline" className="h-12 rounded-md px-6">
                 <Link href="/contact">Discuss a Project</Link>
               </Button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="mt-8 max-w-xl rounded-lg border border-border bg-card p-4"
-            >
-              <div className="mb-3 flex items-center gap-2 text-xs text-muted-foreground">
-                <Code2 size={16} className="text-primary" />
-                <span>capabilities.ts</span>
-              </div>
-              <p className="font-mono text-sm sm:text-base">
-                <span className="text-muted-foreground">me.</span>
-                <span className="text-primary">builds</span>
-                <span className="text-muted-foreground">(</span>
-                <span>{typedText || " "}</span>
-                <motion.span
-                  animate={{ opacity: [0, 1, 0] }}
-                  transition={{ duration: 0.9, repeat: Number.POSITIVE_INFINITY }}
-                  className="text-primary"
-                >
-                  |
-                </motion.span>
-                <span className="text-muted-foreground">)</span>
-              </p>
             </motion.div>
           </div>
 
@@ -252,12 +226,10 @@ function HomeContent() {
                     <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
                       developer profile
                     </p>
-                    <h2 className="mt-3 text-2xl font-bold leading-tight">
-                      Ahmad Jaelani
-                    </h2>
-                    <p className="mt-2 text-sm text-muted-foreground">
+                    <h2 className="mt-3 text-2xl font-bold leading-tight">Ahmad Jaelani</h2>
+                    {/* <p className="mt-2 text-sm text-muted-foreground">
                       I design and build responsive applications with React, Next.js, Laravel, and clean API workflows, from landing pages to internal dashboards.
-                    </p>
+                    </p> */}
                   </div>
                 </div>
 
@@ -276,8 +248,24 @@ function HomeContent() {
                 </div>
 
                 <div className="mt-4 rounded-md bg-muted/60 p-3 font-mono text-xs text-muted-foreground">
-                  <span className="text-primary">system:</span> clean interface ready, runner
-                  animation active.
+                  <div className="mb-3 flex items-center gap-2 text-xs text-muted-foreground">
+                    <Code2 size={16} className="text-primary" />
+                    <span>capabilities.ts</span>
+                  </div>
+                  <p className="font-mono text-sm sm:text-base">
+                    <span className="text-muted-foreground">me.</span>
+                    <span className="text-primary">builds</span>
+                    <span className="text-muted-foreground">(</span>
+                    <span>{typedText || " "}</span>
+                    <motion.span
+                      animate={{ opacity: [0, 1, 0] }}
+                      transition={{ duration: 0.9, repeat: Number.POSITIVE_INFINITY }}
+                      className="text-primary"
+                    >
+                      |
+                    </motion.span>
+                    <span className="text-muted-foreground">)</span>
+                  </p>
                 </div>
               </div>
             </div>
