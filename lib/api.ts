@@ -1,6 +1,6 @@
 import type { Project, ApiResponse, Blog } from "./types";
 
-export const BASE_URL = "https://be.ahmdjae.site";
+export const BASE_URL = "https://ahmad-jaelani-portfolio.my.id";
 export const asset = (path: string) => BASE_URL + path;
 
 export async function getAllProjects(): Promise<Project[]> {
